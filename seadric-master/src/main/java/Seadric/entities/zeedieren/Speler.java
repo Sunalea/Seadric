@@ -2,6 +2,8 @@ package Seadric.entities.zeedieren;
 
 import Seadric.Waterworld;
 import Seadric.entities.text.HealthText;
+import Seadric.entities.text.PointText;
+
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.entities.Collided;
@@ -11,6 +13,8 @@ import com.github.hanyaeger.api.entities.SceneBorderTouchingWatcher;
 import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 import com.github.hanyaeger.api.scenes.SceneBorder;
 import com.github.hanyaeger.api.userinput.KeyListener;
+
+import javafx.scene.effect.Light.Point;
 import javafx.scene.input.KeyCode;
 
 import java.util.Random;
@@ -19,15 +23,19 @@ import java.util.Set;
 public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingWatcher, Newtonian, Collided {
     // make constructor for player fish
     private HealthText healthText;
+    private PointText pointsText;
     private Waterworld waterworld;
     private int health = 3;
     private int points = 0;
 
-    public Speler(Coordinate2D location, int Width, int Height, String Image, Waterworld waterworld, HealthText healthText) {
+    public Speler(Coordinate2D location, int Width, int Height, String Image, Waterworld waterworld,
+            HealthText healthText, PointText pointsText) {
         super(Width, Height, location, Image, waterworld);
         this.waterworld = waterworld;
         this.healthText = healthText;
+        this.pointsText = pointsText;
         healthText.setHealthText(health);
+        pointsText.setPointsText(points);
 
         setGravityConstant(0.005);
         setFrictionConstant(0.04);
@@ -35,16 +43,16 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
 
     @Override
     public void onPressedKeysChange(Set<KeyCode> pressedKeys) {
-        if(pressedKeys.contains(KeyCode.A)){
-            setMotion(3,270d);
+        if (pressedKeys.contains(KeyCode.A)) {
+            setMotion(3, 270d);
             setCurrentFrameIndex(2);
-        } else if(pressedKeys.contains(KeyCode.D)){
-            setMotion(3,90d);
+        } else if (pressedKeys.contains(KeyCode.D)) {
+            setMotion(3, 90d);
             setCurrentFrameIndex(2);
-        } else if(pressedKeys.contains(KeyCode.W)){
-            setMotion(3,180d);
-        } else if(pressedKeys.contains(KeyCode.S)){
-            setMotion(3,0d);
+        } else if (pressedKeys.contains(KeyCode.W)) {
+            setMotion(3, 180d);
+        } else if (pressedKeys.contains(KeyCode.S)) {
+            setMotion(3, 0d);
         }
     }
 
@@ -52,12 +60,12 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
     public void notifyBoundaryTouching(SceneBorder border) {
         setSpeed(0);
 
-        switch(border){
+        switch (border) {
             case TOP:
                 setAnchorLocationY(1);
                 break;
             case BOTTOM:
-                setAnchorLocationY(getSceneHeight() - getHeight() -1);
+                setAnchorLocationY(getSceneHeight() - getHeight() - 1);
                 break;
             case LEFT:
                 setAnchorLocationX(1);
@@ -71,14 +79,26 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
 
     @Override
     public void onCollision(Collider collider) {
-        setAnchorLocation( new Coordinate2D(
-                new Random().nextInt((int)(getSceneWidth()-getWidth())),
-                new Random().nextInt((int)(getSceneHeight()-getHeight())))
-        );
-        health--;
-        healthText.setHealthText(health);
-        if(health == 0) {
-            waterworld.setActiveScene(3);
+        System.out.println(collider);
+
+        if (collider.getHeight() > this.getHeight()) {
+            setAnchorLocation(new Coordinate2D(
+                    new Random().nextInt((int) (getSceneWidth() - getWidth())),
+                    new Random().nextInt((int) (getSceneHeight() - getHeight()))));
+
+            health--;
+            healthText.setHealthText(health);
+            if (health == 0) {
+                waterworld.setActiveScene(2);
+            }
         }
+    }
+
+    public double getHeight() {
+        return this.Height;
+    }
+
+    public void setHeight(int Height) {
+        this.Height = Height;
     }
 }

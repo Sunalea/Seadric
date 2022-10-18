@@ -13,8 +13,6 @@ import javafx.scene.paint.Color;
 
 public abstract class Zeedier extends DynamicSpriteEntity implements Collider, Collided {
     protected int Width, Height;
-    protected Vis vis;
-    protected Speler speler;
 
     public Zeedier(int Width, int Height, Coordinate2D location, String image, Waterworld waterworld) {
         super(image, location, new Size(Width, Height));

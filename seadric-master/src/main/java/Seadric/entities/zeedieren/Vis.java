@@ -42,5 +42,11 @@ public class Vis extends Zeedier implements SceneBorderCrossingWatcher {
 
     @Override
     public void onCollision(Collider collider) {
+        if(collider instanceof Speler) {
+            if(collider.getHeight() > this.getHeight()) {
+                waterworld.removeEntity(this);
+            }
+        }
+        
     }
 }
