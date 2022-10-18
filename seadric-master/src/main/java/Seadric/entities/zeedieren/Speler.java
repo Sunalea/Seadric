@@ -21,6 +21,7 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
     private HealthText healthText;
     private Waterworld waterworld;
     private int health = 3;
+    private int points = 0;
 
     public Speler(Coordinate2D location, int Width, int Height, String Image, Waterworld waterworld, HealthText healthText) {
         super(Width, Height, location, Image, waterworld);
