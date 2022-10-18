@@ -42,16 +42,5 @@ public class Vis extends Zeedier implements SceneBorderCrossingWatcher {
 
     @Override
     public void onCollision(Collider collider) {
-        if (collider instanceof Vis) {
-            Vis vis = (Vis) collider;
-            if (vis.getWidth() == 225) {
-                GroteVis.remove(vis);
-            } else if (vis.getWidth() == 163) {
-                MediumVis.remove(vis);
-            } else {
-                KleineVis.remove(vis);
-            }
-            waterworld.removeEntity(vis);
-        }
     }
 }

@@ -11,7 +11,7 @@ public class Waterworld extends YaegerGame {
     @Override
     public void setupGame() {
         setGameTitle("Waterworld");
-        setSize(new Size(1800, 800));
+        setSize(new Size(1200, 800));
 
         addScene(0, new TitleScene(this));
         addScene(1, new GameLevel(this));
