@@ -37,7 +37,6 @@ public class TitleScene extends StaticScene {
         var startBtn = new StartButton(new Coordinate2D(getWidth() / 2, getHeight() / 2),waterworld);
         startBtn.setAnchorPoint(AnchorPoint.CENTER_CENTER);
 
-
         addEntity(waterworldText);
         addEntity(startBtn);
     }

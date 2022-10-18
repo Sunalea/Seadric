@@ -9,10 +9,12 @@ import Seadric.entities.text.HealthText;
 
 public class GameLevel extends DynamicScene {
     private Waterworld waterworld;
+    private static String image;
 
     public GameLevel(Waterworld waterworld) {
         this.waterworld = waterworld;
     }
+
     @Override
     public void setupScene() {
         setBackgroundImage("backgrounds/background2.jpg");
@@ -30,7 +32,7 @@ public class GameLevel extends DynamicScene {
         var hanny = new Speler(
                 new Coordinate2D(getWidth() / 4, getHeight() / 4),
                 100,180,
-                "sprites/hanny.png", waterworld, healthText
+                image, waterworld, healthText
         );
 
         for (int i = 0; i < 5; i++) {
@@ -66,5 +68,9 @@ public class GameLevel extends DynamicScene {
         addEntity(swordfish);
         addEntity(hanny);
         addEntity(healthText);
+    }
+
+    public static void setCharacter(String image) {
+        GameLevel.image = image;
     }
 }

@@ -23,7 +23,7 @@ public class PlayAgain extends TextEntity implements MouseButtonPressedListener,
 
     @Override
     public void onMouseButtonPressed(MouseButton mouseButton, Coordinate2D coordinate2D) {
-        waterworld.setActiveScene(1);
+        waterworld.setActiveScene(2);
     }
 
     @Override

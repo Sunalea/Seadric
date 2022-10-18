@@ -71,17 +71,6 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
 
     @Override
     public void onCollision(Collider collider) {
-        System.out.println(collider);
-        if(collider.equals(Zeedier.class)){
-            if(collider.getHeight() == 80){
-                health--;
-                healthText.setHealthText(health);
-                if(health == 0){
-                    waterworld.setActiveScene(2);
-                }
-            }
-        }
-
         setAnchorLocation( new Coordinate2D(
                 new Random().nextInt((int)(getSceneWidth()-getWidth())),
                 new Random().nextInt((int)(getSceneHeight()-getHeight())))
@@ -89,7 +78,7 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
         health--;
         healthText.setHealthText(health);
         if(health == 0) {
-            waterworld.setActiveScene(2);
+            waterworld.setActiveScene(3);
         }
     }
 }

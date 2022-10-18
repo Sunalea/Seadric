@@ -14,15 +14,17 @@ public class Waterworld extends YaegerGame {
         setSize(new Size(1200, 800));
 
         addScene(0, new TitleScene(this));
-        addScene(1, new GameLevel(this));
-        addScene(2, new GameOver(this));
+        addScene(1, new KarakterScherm(this));
+        addScene(2, new GameLevel(this));
+        addScene(3, new GameOver(this));
     }
 
     @Override
     public void setupScenes() {
         addScene(0, new TitleScene(this));
-        addScene(1, new GameLevel(this));
-        addScene(2, new GameOver(this));
+        addScene(1, new KarakterScherm(this));
+        addScene(2, new GameLevel(this));
+        addScene(3, new GameOver(this));
     }
 
     public void removeEntity(Vis vis) {

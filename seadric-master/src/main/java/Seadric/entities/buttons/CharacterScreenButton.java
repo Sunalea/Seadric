@@ -18,7 +18,7 @@ public class CharacterScreenButton extends TextEntity implements MouseButtonPres
     private Waterworld waterworld;
 
     public CharacterScreenButton(Coordinate2D initialLocation, Waterworld waterworld) {
-        super(initialLocation, "Choose Character");
+        super(initialLocation, "Choose character");
         this.waterworld = waterworld;
 
         setFill(Color.LIGHTBLUE);
@@ -27,7 +27,7 @@ public class CharacterScreenButton extends TextEntity implements MouseButtonPres
 
     @Override
     public void onMouseButtonPressed(MouseButton mouseButton, Coordinate2D coordinate2D) {
-        waterworld.setActiveScene(1);
+        waterworld.setActiveScene(2);
     }
 
     @Override
