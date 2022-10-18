@@ -3,6 +3,7 @@ package Seadric;
 import Seadric.entities.Hanny;
 import Seadric.entities.Sharky;
 import Seadric.entities.swordfish.Swordfish;
+import Seadric.entities.zeedieren.Speler;
 import Seadric.entities.zeedieren.Vis;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.scenes.DynamicScene;
@@ -29,9 +30,10 @@ public class GameLevel extends DynamicScene {
 
         var healthText = new HealthText( new Coordinate2D(0 , 0));
 
-        var hanny = new Hanny(
+        var hanny = new Speler(
                 new Coordinate2D(getWidth() / 4, getHeight() / 4),
-                healthText, waterworld
+                60,80,
+                "sprites/hanny.png", waterworld, healthText
         );
 
 

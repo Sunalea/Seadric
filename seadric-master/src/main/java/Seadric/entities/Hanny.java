@@ -1,5 +1,6 @@
 package Seadric.entities;
 
+import Seadric.entities.zeedieren.Zeedier;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.entities.Collided;
@@ -69,7 +70,16 @@ public class Hanny extends DynamicSpriteEntity implements KeyListener, SceneBord
 
     @Override
     public void onCollision(Collider collider) {
-        // if the player collides with a fish that is bigger than him, he loses health
+        System.out.println(collider);
+        if(collider.equals(Zeedier.class)){
+            if(collider.getHeight() == 80){
+                health--;
+                healthText.setHealthText(health);
+                if(health == 0){
+                    waterworld.setActiveScene(2);
+                }
+            }
+        }
 
         setAnchorLocation( new Coordinate2D(
                 new Random().nextInt((int)(getSceneWidth()-getWidth())),
