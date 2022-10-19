@@ -18,7 +18,6 @@ public class Vis extends Zeedier implements SceneBorderCrossingWatcher {
     ArrayList<Vis> KleineVis    = new ArrayList();
     private Waterworld waterworld;
 
-
     public Vis(Coordinate2D location, int Width, int Height, String Image, Waterworld waterworld) {
         super(Width, Height, location, Image, waterworld);
         this.waterworld = waterworld;

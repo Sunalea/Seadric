@@ -22,8 +22,7 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
     private HealthText healthText;
     private PointText pointsText;
     private Waterworld waterworld;
-    private int health = 3;
-    private int points = 0;
+    private int health = 3, points = 0;
 
     public Speler(Coordinate2D location, int Width, int Height, String Image, Waterworld waterworld,
             HealthText healthText, PointText pointsText) {
@@ -85,11 +84,29 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
                 if (health == 0) {
                     waterworld.setActiveScene(3);
                 }
+            } else {
+                if(collider.getWidth() == 30) {
+                    points += 10;
+                } else if(collider.getWidth() == 20) {
+                    points += 20;
+                } else {
+                    points += 30;
+                }
             }
-        } else if (collider instanceof Treasure) {
-            health++;
-            healthText.setHealthText(health);
-            setRandomPos();
+
+            if (points >= 100) {
+                System.out.println(this.Width);
+                this.Width += 20;
+                this.Height += 20;
+                System.out.println(this.Width);
+            }
+        }
+
+        else if (collider instanceof Treasure) {
+            points += ((Treasure) collider).getPoints();
+//            health += ((Treasure) collider).getHealth();
+//            healthText.setHealthText(health);
+            pointsText.setPointsText(points);
         }
 
         if (collider instanceof Seamine) {
@@ -114,6 +131,10 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
         this.Height = Height;
     }
 
+    public void setWidth(int Width) {
+        this.Width = Width;
+    }
+
     /**
      * @return
      */
@@ -126,6 +147,15 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
      */
     public void setPoints(int points) {
         this.points = points;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    // gethealth
+    public int getHealth() {
+        return this.health;
     }
 
     public void setRandomPos() {

@@ -24,7 +24,6 @@ public class Karakter extends DynamicSpriteEntity implements MouseButtonPressedL
 
     @Override
     public void onMouseButtonPressed(MouseButton mouseButton, Coordinate2D coordinate2D) {
-        // When clicked on a character send the image to the gamelevel
         GameLevel.setCharacter(image);
         waterworld.setActiveScene(2);
     }

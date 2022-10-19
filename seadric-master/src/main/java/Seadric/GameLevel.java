@@ -15,6 +15,7 @@ import java.util.Random;
 
 public class GameLevel extends DynamicScene {
     private Waterworld waterworld;
+    private Speler speler;
     private static String image;
 
     public GameLevel(Waterworld waterworld) {
@@ -36,10 +37,11 @@ public class GameLevel extends DynamicScene {
         var healthText = new HealthText(new Coordinate2D(0, 0));
 
         var speler = new Speler(
-            new Coordinate2D(getWidth() / 2, getHeight() / 2),60,70,"sprites/hanny.png", waterworld, healthText, pointsText
+            new Coordinate2D(getWidth() / 2, getHeight() / 2),60,70, image, waterworld, healthText, pointsText
         );
+        this.speler = speler;
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 2; i++) {
             addEntity(new Vis(
                     new Coordinate2D(100 + i * 100, 100 + i * 100),
                     ((int)getWidth() / 8),
@@ -49,7 +51,7 @@ public class GameLevel extends DynamicScene {
             ));
         }
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 2; i++) {
             addEntity(new Vis(
                     new Coordinate2D(100 + i * 100, 100 + i * 100),
                     ((int)getWidth() / 20),
@@ -59,7 +61,7 @@ public class GameLevel extends DynamicScene {
             ));
         }
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 2; i++) {
             addEntity(new Vis(
                     new Coordinate2D(100 + i * 100, 100 + i * 100),
                     ((int)getWidth() / 30),
@@ -69,17 +71,15 @@ public class GameLevel extends DynamicScene {
             ));
         }
 
-        for (int i =0;i<3;i++){
+        for (int i = 0; i < 3; i++){
             addEntity(new Treasure(
-                new Coordinate2D(new Random().nextInt((int) getWidth()), getHeight() / 1.1)
+                new Coordinate2D((new Random().nextInt((int) getWidth())) + (i++ + 30), getHeight() / 1.1), healthText, speler
             ));
         }
 
-        for (int i =0;i<3;i++){
-            addEntity(new Seamine(
+        addEntity(new Seamine(
                 new Coordinate2D(new Random().nextInt((int) getWidth()), getHeight() / 1.6)
-            ));
-        }
+        ));
 
         addEntity(swordfish);
         addEntity(speler);
