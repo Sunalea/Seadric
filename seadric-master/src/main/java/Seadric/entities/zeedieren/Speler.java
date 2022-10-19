@@ -1,5 +1,6 @@
 package Seadric.entities.zeedieren;
 
+import Seadric.GameLevel;
 import Seadric.Waterworld;
 import Seadric.entities.text.HealthText;
 import Seadric.entities.text.PointText;
@@ -79,9 +80,8 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
 
     @Override
     public void onCollision(Collider collider) {
-        System.out.println(collider);
-
-        if (collider.getHeight() > this.getHeight()) {
+        // System.out.println(collider);
+        if (collider.getHeight() > this.getHeight() && collider.getWidth() > this.getHeight()) {
             setAnchorLocation(new Coordinate2D(
                     new Random().nextInt((int) (getSceneWidth() - getWidth())),
                     new Random().nextInt((int) (getSceneHeight() - getHeight()))));
@@ -89,16 +89,36 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
             health--;
             healthText.setHealthText(health);
             if (health == 0) {
-                waterworld.setActiveScene(2);
+                waterworld.setActiveScene(3);
             }
         }
     }
 
+    /* (non-Javadoc)
+     * @see com.github.hanyaeger.core.entities.Bounded#getHeight()
+     */
     public double getHeight() {
         return this.Height;
     }
 
+    /**
+     * @param Height
+     */
     public void setHeight(int Height) {
         this.Height = Height;
+    }
+
+    /**
+     * @return
+     */
+    public int getPoints() {
+        return this.points;
+    }
+
+    /**
+     * @param points
+     */
+    public void setPoints(int points) {
+        this.points = points;
     }
 }

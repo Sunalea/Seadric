@@ -26,7 +26,4 @@ public class Waterworld extends YaegerGame {
         addScene(2, new GameLevel(this));
         addScene(3, new GameOver(this));
     }
-
-    public void removeEntity(Vis vis) {
-    }
 }

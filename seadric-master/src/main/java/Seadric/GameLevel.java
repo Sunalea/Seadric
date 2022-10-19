@@ -59,8 +59,8 @@ public class GameLevel extends DynamicScene {
         for (int i = 0; i < 5; i++) {
             addEntity(new Vis(
                     new Coordinate2D(100 + i * 100, 100 + i * 100),
-                    ((int)getWidth() / 25),
-                    ((int)getWidth() / 25),
+                    ((int)getWidth() / 30),
+                    ((int)getWidth() / 30),
                     "sprites/KleineVis.png",
                     waterworld
             ));
