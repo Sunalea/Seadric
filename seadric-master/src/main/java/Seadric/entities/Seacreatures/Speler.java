@@ -3,12 +3,14 @@ package Seadric.entities.Seacreatures;
 import java.util.Random;
 import java.util.Set;
 
+import Seadric.GameLevel;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.Newtonian;
 import com.github.hanyaeger.api.entities.SceneBorderTouchingWatcher;
 import com.github.hanyaeger.api.scenes.SceneBorder;
 import com.github.hanyaeger.api.userinput.KeyListener;
+import com.github.hanyaeger.api.Size;
 
 import Seadric.Waterworld;
 import Seadric.entities.enemies.Seamine;
@@ -23,13 +25,16 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
     private PointText pointsText;
     private Waterworld waterworld;
     private int health = 3, points = 0;
+    private String image;
+    private Coordinate2D location;
 
-    public Speler(Coordinate2D location, int Width, int Height, String Image, Waterworld waterworld,
+    public Speler(Coordinate2D location, int Width, int Height, String image, Waterworld waterworld,
             HealthText healthText, PointText pointsText) {
-        super(Width, Height, location, Image, waterworld);
+        super(Width, Height, location, image, waterworld);
         this.waterworld = waterworld;
         this.healthText = healthText;
         this.pointsText = pointsText;
+
         healthText.setHealthText(health);
         pointsText.setPointsText(points);
 
@@ -78,27 +83,28 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
         if (collider instanceof Vis) {
             if (collider.getHeight() > this.getHeight() && collider.getWidth() > this.getHeight()) {
                 setRandomPos();
-
                 health--;
                 healthText.setHealthText(health);
                 if (health == 0) {
                     waterworld.setActiveScene(3);
                 }
-            } else {
-                if(collider.getWidth() == 30) {
-                    points += 10;
-                } else if(collider.getWidth() == 20) {
-                    points += 20;
-                } else {
+            } else if (collider.getHeight() < this.getHeight() && collider.getWidth() < this.getHeight()) {
+                if(collider.getWidth() == 150) {
                     points += 30;
+                    pointsText.setPointsText(points);
+                } else if(collider.getWidth() == 60) {
+                    points += 20;
+                    pointsText.setPointsText(points);
+                } else {
+                    System.out.println(collider.getWidth());
+                    points += 10;
+                    pointsText.setPointsText(points);
                 }
             }
         }
 
         else if (collider instanceof Treasure) {
             points += ((Treasure) collider).getPoints();
-//            health += ((Treasure) collider).getHealth();
-//            healthText.setHealthText(health);
             pointsText.setPointsText(points);
         }
 
@@ -108,54 +114,23 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
         }
 
         if (points >= 100) {
-            System.out.println(this.Width);
-            this.Width += 20;
-            this.Height += 20;
-            System.out.println(this.Width);
+            setWidth(Width + 120);
+            setHeight(Height + 120);
+            this.Width += 120;
+            this.Height += 120;
         }
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see com.github.hanyaeger.core.entities.Bounded#getHeight()
-     */
     public double getHeight() {
         return this.Height;
     }
 
-    /**
-     * @param Height
-     */
     public void setHeight(int Height) {
         this.Height = Height;
     }
 
     public void setWidth(int Width) {
         this.Width = Width;
-    }
-
-    /**
-     * @return
-     */
-    public int getPoints() {
-        return this.points;
-    }
-
-    /**
-     * @param points
-     */
-    public void setPoints(int points) {
-        this.points = points;
-    }
-
-    public void setHealth(int health) {
-        this.health = health;
-    }
-
-    // gethealth
-    public int getHealth() {
-        return this.health;
     }
 
     public void setRandomPos() {

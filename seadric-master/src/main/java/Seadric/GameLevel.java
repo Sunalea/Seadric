@@ -30,10 +30,9 @@ public class GameLevel extends DynamicScene {
 
     @Override
     public void setupEntities() {
-        var swordfish = new Swordfish(new Coordinate2D(getWidth() / 2, getHeight() / 2));
+//        var swordfish = new Swordfish(new Coordinate2D(getWidth() / 2, getHeight() / 2));
 
         var pointsText = new PointText(new Coordinate2D(1050, 0));
-
         var healthText = new HealthText(new Coordinate2D(0, 0));
 
         var speler = new Speler(
@@ -81,7 +80,7 @@ public class GameLevel extends DynamicScene {
                 new Coordinate2D(new Random().nextInt((int) getWidth()), getHeight() / 1.6)
         ));
 
-        addEntity(swordfish);
+//        addEntity(swordfish);
         addEntity(speler);
         addEntity(healthText);
         addEntity(pointsText);

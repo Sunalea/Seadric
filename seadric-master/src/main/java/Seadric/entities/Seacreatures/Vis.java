@@ -17,15 +17,17 @@ public class Vis extends Zeedier implements SceneBorderCrossingWatcher {
     ArrayList<Vis> MediumVis    = new ArrayList();
     ArrayList<Vis> KleineVis    = new ArrayList();
     private Waterworld waterworld;
-
+    private int Width, Height;
     public Vis(Coordinate2D location, int Width, int Height, String Image, Waterworld waterworld) {
         super(Width, Height, location, Image, waterworld);
+        this.Width = Width;
+        this.Height = Height;
         this.waterworld = waterworld;
 
-        if (Width == 225) {
+        if (Width == 150) {
             GroteVis.add(this);
             setMotion(1.5, 270d);
-        } else if (Width == 163) {
+        } else if (Width == 60) {
             MediumVis.add(this);
             setMotion(1.7, 270d);
         } else {
@@ -43,7 +45,7 @@ public class Vis extends Zeedier implements SceneBorderCrossingWatcher {
     @Override
     public void onCollision(Collider collider) {
         if(collider instanceof Speler) {
-            if(collider.getHeight() > this.getHeight() && collider.getWidth() > this.getHeight()) {
+            if(collider.getHeight() >= this.Height && collider.getWidth() >= this.Width) {
                 this.remove();
             }
         }
