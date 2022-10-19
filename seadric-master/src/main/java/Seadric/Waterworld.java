@@ -3,15 +3,13 @@ package Seadric;
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.YaegerGame;
 
-import Seadric.entities.Seacreatures.Vis;
-
 public class Waterworld extends YaegerGame {
     public static void main(String[] args) {
         launch(args);
     }
     @Override
     public void setupGame() {
-        setGameTitle("Waterworld");
+        setGameTitle("Seadric");
         setSize(new Size(1200, 800));
 
         addScene(0, new TitleScreen(this));

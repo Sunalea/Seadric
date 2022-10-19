@@ -17,7 +17,7 @@ public class PlayAgain extends TextEntity implements MouseButtonPressedListener,
     public PlayAgain(Coordinate2D initialLocation, Waterworld waterworld) {
         super(initialLocation, "Play again");
         this.waterworld = waterworld;
-        setFill(Color.PURPLE);
+        setFill(Color.BLACK);
         setFont(Font.font("Roboto", FontWeight.BOLD, 30));
     }
 
@@ -28,13 +28,13 @@ public class PlayAgain extends TextEntity implements MouseButtonPressedListener,
 
     @Override
     public void onMouseEntered() {
-        setFill(Color.VIOLET);
+        setFill(Color.DARKGRAY);
         setCursor(Cursor.HAND);
     }
 
     @Override
     public void onMouseExited() {
-        setFill(Color.PURPLE);
+        setFill(Color.BLACK);
         setCursor(Cursor.DEFAULT);
     }
 }

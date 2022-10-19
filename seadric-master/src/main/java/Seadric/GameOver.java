@@ -27,11 +27,11 @@ public class GameOver extends DynamicScene {
     @Override
     public void setupEntities() {
         var gameOverText = new TextEntity(
-                new Coordinate2D(getWidth() / 2, getHeight() / 2),
+                new Coordinate2D(getWidth() / 2, getHeight() / 3.5),
                 "Game over"
         );
         gameOverText.setAnchorPoint(AnchorPoint.CENTER_CENTER);
-        gameOverText.setFill(Color.DARKBLUE);
+        gameOverText.setFill(Color.BLACK);
         gameOverText.setFont(Font.font("Roboto", FontWeight.SEMI_BOLD, 80));
 
         var playAgain = new PlayAgain(new Coordinate2D(getWidth() / 2, getHeight() / 2), waterworld);

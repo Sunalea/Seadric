@@ -1,26 +1,21 @@
 package Seadric.entities.Seacreatures;
 
-import Seadric.GameLevel;
-import Seadric.Waterworld;
-import Seadric.entities.text.HealthText;
-import Seadric.entities.text.PointText;
-import Seadric.entities.treasure.Treasure;
+import java.util.Random;
+import java.util.Set;
 
 import com.github.hanyaeger.api.Coordinate2D;
-import com.github.hanyaeger.api.Size;
-import com.github.hanyaeger.api.entities.Collided;
 import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.Newtonian;
 import com.github.hanyaeger.api.entities.SceneBorderTouchingWatcher;
-import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 import com.github.hanyaeger.api.scenes.SceneBorder;
 import com.github.hanyaeger.api.userinput.KeyListener;
 
-import javafx.scene.effect.Light.Point;
+import Seadric.Waterworld;
+import Seadric.entities.enemies.Seamine;
+import Seadric.entities.text.HealthText;
+import Seadric.entities.text.PointText;
+import Seadric.entities.treasure.Treasure;
 import javafx.scene.input.KeyCode;
-
-import java.util.Random;
-import java.util.Set;
 
 public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingWatcher, Newtonian {
     // make constructor for player fish
@@ -81,24 +76,31 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
 
     @Override
     public void onCollision(Collider collider) {
-        // System.out.println(collider);
-        if (collider.getHeight() > this.getHeight() && collider.getWidth() > this.getHeight()) {
+        if (collider instanceof Vis) {
+            if (collider.getHeight() > this.getHeight() && collider.getWidth() > this.getHeight()) {
                 setRandomPos();
 
-            health--;
-            healthText.setHealthText(health);
-            if (health == 0) {
-                waterworld.setActiveScene(3);
+                health--;
+                healthText.setHealthText(health);
+                if (health == 0) {
+                    waterworld.setActiveScene(3);
+                }
             }
         } else if (collider instanceof Treasure) {
             health++;
             healthText.setHealthText(health);
-
             setRandomPos();
+        }
+
+        if (collider instanceof Seamine) {
+            health = 0;
+            waterworld.setActiveScene(3);
         }
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.github.hanyaeger.core.entities.Bounded#getHeight()
      */
     public double getHeight() {
@@ -128,7 +130,7 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
 
     public void setRandomPos() {
         setAnchorLocation(new Coordinate2D(
-            new Random().nextInt((int) (getSceneWidth() - getWidth())),
-            new Random().nextInt((int) (getSceneHeight() - getHeight()))));
+                new Random().nextInt((int) (getSceneWidth() - getWidth())),
+                new Random().nextInt((int) (getSceneHeight() - getHeight()))));
     }
 }

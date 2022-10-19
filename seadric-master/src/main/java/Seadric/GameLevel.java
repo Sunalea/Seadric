@@ -2,6 +2,7 @@ package Seadric;
 
 import Seadric.entities.Seacreatures.Speler;
 import Seadric.entities.Seacreatures.Vis;
+import Seadric.entities.enemies.Seamine;
 import Seadric.entities.swordfish.Swordfish;
 import Seadric.entities.text.HealthText;
 import Seadric.entities.text.PointText;
@@ -34,8 +35,8 @@ public class GameLevel extends DynamicScene {
 
         var healthText = new HealthText(new Coordinate2D(0, 0));
 
-        var hanny = new Speler(
-            new Coordinate2D(getWidth() / 4, getHeight() / 4),60,70,"sprites/hanny.png", waterworld, healthText, pointsText
+        var speler = new Speler(
+            new Coordinate2D(getWidth() / 2, getHeight() / 2),60,70,"sprites/hanny.png", waterworld, healthText, pointsText
         );
 
         for (int i = 0; i < 5; i++) {
@@ -74,8 +75,14 @@ public class GameLevel extends DynamicScene {
             ));
         }
 
+        for (int i =0;i<3;i++){
+            addEntity(new Seamine(
+                new Coordinate2D(new Random().nextInt((int) getWidth()), getHeight() / 1.6)
+            ));
+        }
+
         addEntity(swordfish);
-        addEntity(hanny);
+        addEntity(speler);
         addEntity(healthText);
         addEntity(pointsText);
     }

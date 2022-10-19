@@ -20,23 +20,23 @@ public class TitleScreen extends StaticScene {
     @Override
     public void setupScene() {
         setBackgroundAudio("audio/ocean.mp3");
-        setBackgroundImage("backgrounds/background1.jpg");
+        setBackgroundImage("backgrounds/background3.jpg");
     }
 
     @Override
     public void setupEntities() {
-        var waterworldText = new TextEntity(
-                new Coordinate2D(getWidth() / 2, getHeight() / 2),
-                "Waterworld"
-        );
+        var waterworldText = new TextEntity(new Coordinate2D(getWidth() / 2, getHeight() / 3.5),"Seadric");
+
         waterworldText.setAnchorPoint(AnchorPoint.CENTER_CENTER);
-        waterworldText.setFill(Color.DARKBLUE);
+        waterworldText.setFill(Color.LIGHTBLUE);
         waterworldText.setFont(Font.font("Roboto", FontWeight.SEMI_BOLD, 80));
 
 
 
-        var startBtn = new StartButton(new Coordinate2D(getWidth() / 2, getHeight() / 2),waterworld);
+        var startBtn = new StartButton(new Coordinate2D(getWidth() / 2, getHeight() / 2), waterworld);
+
         startBtn.setAnchorPoint(AnchorPoint.CENTER_CENTER);
+
 
         addEntity(waterworldText);
         addEntity(startBtn);

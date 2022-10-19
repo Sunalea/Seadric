@@ -17,7 +17,7 @@ public class StartButton extends TextEntity implements MouseButtonPressedListene
     public StartButton(Coordinate2D initialLocation, Waterworld waterworld) {
         super(initialLocation, "Play game");
         this.waterworld = waterworld;
-        setFill(Color.PURPLE);
+        setFill(Color.LIGHTBLUE);
         setFont(Font.font("Roboto", FontWeight.BOLD, 30));
     }
 
@@ -28,13 +28,13 @@ public class StartButton extends TextEntity implements MouseButtonPressedListene
 
     @Override
     public void onMouseEntered() {
-        setFill(Color.VIOLET);
+        setFill(Color.WHITE);
         setCursor(Cursor.HAND);
     }
 
     @Override
     public void onMouseExited() {
-        setFill(Color.PURPLE);
+        setFill(Color.LIGHTBLUE);
         setCursor(Cursor.DEFAULT);
     }
 }
