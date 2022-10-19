@@ -93,13 +93,6 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
                     points += 30;
                 }
             }
-
-            if (points >= 100) {
-                System.out.println(this.Width);
-                this.Width += 20;
-                this.Height += 20;
-                System.out.println(this.Width);
-            }
         }
 
         else if (collider instanceof Treasure) {
@@ -112,6 +105,13 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
         if (collider instanceof Seamine) {
             health = 0;
             waterworld.setActiveScene(3);
+        }
+
+        if (points >= 100) {
+            System.out.println(this.Width);
+            this.Width += 20;
+            this.Height += 20;
+            System.out.println(this.Width);
         }
     }
 
