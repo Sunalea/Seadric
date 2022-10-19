@@ -5,6 +5,7 @@ import Seadric.entities.Seacreatures.Vis;
 import Seadric.entities.swordfish.Swordfish;
 import Seadric.entities.text.HealthText;
 import Seadric.entities.text.PointText;
+import Seadric.entities.treasure.Treasure;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.scenes.DynamicScene;
@@ -64,6 +65,12 @@ public class GameLevel extends DynamicScene {
                     ((int)getWidth() / 30),
                     "sprites/KleineVis.png",
                     waterworld
+            ));
+        }
+
+        for (int i =0;i<3;i++){
+            addEntity(new Treasure(
+                new Coordinate2D(new Random().nextInt((int) getWidth()), getHeight() / 1.1)
             ));
         }
 

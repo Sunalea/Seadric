@@ -48,6 +48,5 @@ public class Vis extends Zeedier implements SceneBorderCrossingWatcher {
                 this.remove();
             }
         }
-        
     }
 }

@@ -4,6 +4,7 @@ import Seadric.GameLevel;
 import Seadric.Waterworld;
 import Seadric.entities.text.HealthText;
 import Seadric.entities.text.PointText;
+import Seadric.entities.treasure.Treasure;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
@@ -21,7 +22,7 @@ import javafx.scene.input.KeyCode;
 import java.util.Random;
 import java.util.Set;
 
-public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingWatcher, Newtonian, Collided {
+public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingWatcher, Newtonian {
     // make constructor for player fish
     private HealthText healthText;
     private PointText pointsText;
@@ -49,7 +50,7 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
             setCurrentFrameIndex(2);
         } else if (pressedKeys.contains(KeyCode.D)) {
             setMotion(3, 90d);
-            setCurrentFrameIndex(2);
+            setCurrentFrameIndex(1);
         } else if (pressedKeys.contains(KeyCode.W)) {
             setMotion(3, 180d);
         } else if (pressedKeys.contains(KeyCode.S)) {
@@ -82,15 +83,18 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
     public void onCollision(Collider collider) {
         // System.out.println(collider);
         if (collider.getHeight() > this.getHeight() && collider.getWidth() > this.getHeight()) {
-            setAnchorLocation(new Coordinate2D(
-                    new Random().nextInt((int) (getSceneWidth() - getWidth())),
-                    new Random().nextInt((int) (getSceneHeight() - getHeight()))));
+                setRandomPos();
 
             health--;
             healthText.setHealthText(health);
             if (health == 0) {
                 waterworld.setActiveScene(3);
             }
+        } else if (collider instanceof Treasure) {
+            health++;
+            healthText.setHealthText(health);
+
+            setRandomPos();
         }
     }
 
@@ -120,5 +124,11 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
      */
     public void setPoints(int points) {
         this.points = points;
+    }
+
+    public void setRandomPos() {
+        setAnchorLocation(new Coordinate2D(
+            new Random().nextInt((int) (getSceneWidth() - getWidth())),
+            new Random().nextInt((int) (getSceneHeight() - getHeight()))));
     }
 }
