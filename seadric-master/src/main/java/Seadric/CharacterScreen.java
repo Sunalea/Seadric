@@ -1,15 +1,17 @@
 package Seadric;
 
-import Seadric.entities.buttons.CharacterScreenButton;
 import com.github.hanyaeger.api.AnchorPoint;
 import com.github.hanyaeger.api.scenes.DynamicScene;
+
+import Seadric.entities.buttons.CharacterScreenButton;
 import Seadric.entities.components.Karakter;
+
 import com.github.hanyaeger.api.Coordinate2D;
 
-public class KarakterScherm extends DynamicScene {
+public class CharacterScreen extends DynamicScene {
     private Waterworld waterworld;
 
-    public KarakterScherm(Waterworld waterworld) {
+    public CharacterScreen(Waterworld waterworld) {
         this.waterworld = waterworld;
     }
     @Override

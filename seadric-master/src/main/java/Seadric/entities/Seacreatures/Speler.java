@@ -1,4 +1,4 @@
-package Seadric.entities.zeedieren;
+package Seadric.entities.Seacreatures;
 
 import Seadric.GameLevel;
 import Seadric.Waterworld;

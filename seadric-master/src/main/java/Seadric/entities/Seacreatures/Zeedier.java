@@ -1,4 +1,4 @@
-package Seadric.entities.zeedieren;
+package Seadric.entities.Seacreatures;
 
 import Seadric.Waterworld;
 import Seadric.entities.swordfish.HitBox;

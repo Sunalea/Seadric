@@ -1,12 +1,13 @@
 package Seadric;
 
+import Seadric.entities.Seacreatures.Speler;
+import Seadric.entities.Seacreatures.Vis;
 import Seadric.entities.swordfish.Swordfish;
-import Seadric.entities.zeedieren.Speler;
-import Seadric.entities.zeedieren.Vis;
-import com.github.hanyaeger.api.Coordinate2D;
-import com.github.hanyaeger.api.scenes.DynamicScene;
 import Seadric.entities.text.HealthText;
 import Seadric.entities.text.PointText;
+
+import com.github.hanyaeger.api.Coordinate2D;
+import com.github.hanyaeger.api.scenes.DynamicScene;
 
 import java.util.Random;
 

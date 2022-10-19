@@ -4,6 +4,7 @@ import com.github.hanyaeger.api.AnchorPoint;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.impl.TextEntity;
 import com.github.hanyaeger.api.scenes.DynamicScene;
+
 import Seadric.entities.buttons.Gameover;
 import Seadric.entities.buttons.PlayAgain;
 import javafx.scene.paint.Color;

@@ -1,4 +1,4 @@
-package Seadric.entities.zeedieren;
+package Seadric.entities.Seacreatures;
 
 import Seadric.Waterworld;
 import com.github.hanyaeger.api.Coordinate2D;
