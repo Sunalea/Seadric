@@ -22,8 +22,6 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
     private Seadric seadric;
     private int health = 3, points = 0;
     private String healthTxt = "Health: ", pointsTxt = "Points:";
-    private String image;
-    private Coordinate2D location;
 
     public Speler(Coordinate2D location, int Width, int Height, String image, Seadric seadric,
                   DynamicText healthText, DynamicText pointsText) {
@@ -32,8 +30,8 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
         this.healthText = healthText;
         this.pointsText = pointsText;
 
-        healthText.setText("Health:" + health);
-        pointsText.setText("Points:" + points);
+        healthText.setText("Health: " + health);
+        pointsText.setText("Points: " + points);
 
         setGravityConstant(0.005);
         setFrictionConstant(0.04);
