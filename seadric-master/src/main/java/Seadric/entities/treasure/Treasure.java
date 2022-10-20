@@ -5,10 +5,15 @@ import com.github.hanyaeger.api.entities.Collided;
 import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.DynamicCompositeEntity;
 public class Treasure extends DynamicCompositeEntity implements Collider, Collided {
+<<<<<<< HEAD
     Speler speler;
     public Treasure(Coordinate2D initialLocation, Speler speler) {
         super(initialLocation);
         this.speler = speler;
+=======
+    public Treasure(Coordinate2D initialLocation) {
+        super(initialLocation);
+>>>>>>> 26e4f0e7d3eafc5a0c06688f46a7fcade046dc92
     }
 
     @Override
