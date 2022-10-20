@@ -1,5 +1,6 @@
 package Seadric;
 
+import Seadric.entities.text.Screentext;
 import com.github.hanyaeger.api.AnchorPoint;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.impl.TextEntity;
@@ -26,18 +27,12 @@ public class GameOver extends DynamicScene {
 
     @Override
     public void setupEntities() {
-        var gameOverText = new TextEntity(
-                new Coordinate2D(getWidth() / 2, getHeight() / 3.5),
-                "Game over"
-        );
-        gameOverText.setAnchorPoint(AnchorPoint.CENTER_CENTER);
-        gameOverText.setFill(Color.BLACK);
-        gameOverText.setFont(Font.font("Roboto", FontWeight.SEMI_BOLD, 80));
-
-        var playAgain = new SwitchScene(new Coordinate2D(getWidth() / 2, getHeight() / 2), seadric, 2);
-        playAgain.setAnchorPoint(AnchorPoint.CENTER_CENTER);
-
+        var gameOverText = new Screentext( new Coordinate2D(getWidth() / 2, (getHeight() / 2) - 100),  "Game over", 80);
+        var playAgain = new SwitchScene(new Coordinate2D(getWidth() / 2, (getHeight() / 2) ), seadric, "Play again", 2);
         var quitGame = new Gameover(new Coordinate2D(getWidth() / 2, (getHeight() / 2) + 100), seadric);
+
+        gameOverText.setAnchorPoint(AnchorPoint.CENTER_CENTER);
+        playAgain.setAnchorPoint(AnchorPoint.CENTER_CENTER);
         quitGame.setAnchorPoint(AnchorPoint.CENTER_CENTER);
 
         addEntity(gameOverText);

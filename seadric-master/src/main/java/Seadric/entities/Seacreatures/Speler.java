@@ -3,6 +3,7 @@ package Seadric.entities.Seacreatures;
 import java.util.Random;
 import java.util.Set;
 
+import Seadric.entities.text.DynamicText;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.Newtonian;
@@ -12,28 +13,27 @@ import com.github.hanyaeger.api.userinput.KeyListener;
 
 import Seadric.Seadric;
 import Seadric.entities.enemies.Seamine;
-import Seadric.entities.text.HealthText;
-import Seadric.entities.text.PointText;
 import Seadric.entities.treasure.Treasure;
 import javafx.scene.input.KeyCode;
 
 public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingWatcher, Newtonian {
-    private HealthText healthText;
-    private PointText pointsText;
+    private DynamicText healthText, pointsText;
+
     private Seadric seadric;
     private int health = 3, points = 0;
+    private String healthTxt = "Health: ", pointsTxt = "Points:";
     private String image;
     private Coordinate2D location;
 
     public Speler(Coordinate2D location, int Width, int Height, String image, Seadric seadric,
-            HealthText healthText, PointText pointsText) {
+                  DynamicText healthText, DynamicText pointsText) {
         super(Width, Height, location, image, seadric);
         this.seadric = seadric;
         this.healthText = healthText;
         this.pointsText = pointsText;
 
-        healthText.setHealthText(health);
-        pointsText.setPointsText(points);
+        healthText.setText("Health:" + health);
+        pointsText.setText("Points:" + points);
 
         setGravityConstant(0.005);
         setFrictionConstant(0.04);
@@ -82,25 +82,25 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
             if (collider.getHeight() > this.getHeight() && collider.getWidth() > this.getHeight()) {
                 setRandomPos();
                 health--;
-                healthText.setHealthText(health);
+                healthText.setText(healthTxt + health);
                 if (health == 0) {
                     seadric.setActiveScene(3);
                 }
             } else if (collider.getHeight() < this.getHeight() && collider.getWidth() < this.getHeight()) {
                 if (collider.getWidth() == 150) {
                     points += 30;
-                    pointsText.setPointsText(points);
+                    pointsText.setText(pointsTxt + points);
                 } else if (collider.getWidth() == 60) {
                     points += 20;
-                    pointsText.setPointsText(points);
+                    pointsText.setText(pointsTxt + points);
                 } else {
                     points += 10;
-                    pointsText.setPointsText(points);
+                    pointsText.setText(pointsTxt + points);
                 }
             }
         } else if (collider instanceof Predator) {
             health--;
-            healthText.setHealthText(health);
+            healthText.setText(healthTxt + health);
             if (health == 0){
                 seadric.setActiveScene(3);
             }
@@ -108,7 +108,7 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
 
         else if (collider instanceof Treasure) {
             points += ((Treasure) collider).getPoints();
-            pointsText.setPointsText(points);
+            pointsText.setText(pointsTxt + points);
         }
         if (collider instanceof Seamine) {
             health = 0;

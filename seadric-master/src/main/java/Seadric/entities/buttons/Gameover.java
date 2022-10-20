@@ -18,7 +18,7 @@ public class Gameover extends Knop {
     public Gameover(Coordinate2D initialLocation, Seadric seadric){
         super(initialLocation, "Quit game", seadric);
         this.seadric = seadric;
-        setFill(Color.LIGHTBLUE);
+        setFill(Color.BLACK);
         setFont(Font.font("Roboto", FontWeight.BOLD, 30));
     }
 
@@ -29,13 +29,13 @@ public class Gameover extends Knop {
 
     @Override
     public void onMouseEntered() {
-        setFill(Color.VIOLET);
+        setFill(Color.DARKGRAY);
         setCursor(Cursor.HAND);
     }
 
     @Override
     public void onMouseExited() {
-        setFill(Color.PURPLE);
+        setFill(Color.BLACK);
         setCursor(Cursor.DEFAULT);
     }
 }

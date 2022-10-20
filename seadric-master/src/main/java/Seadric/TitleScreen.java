@@ -33,7 +33,7 @@ public class TitleScreen extends StaticScene {
 
 
 
-        var startBtn = new SwitchScene(new Coordinate2D(getWidth() / 2, getHeight() / 2), seadric, 1);
+        var startBtn = new SwitchScene(new Coordinate2D(getWidth() / 2, getHeight() / 2), seadric, "Start game", 1);
 
         startBtn.setAnchorPoint(AnchorPoint.CENTER_CENTER);
 

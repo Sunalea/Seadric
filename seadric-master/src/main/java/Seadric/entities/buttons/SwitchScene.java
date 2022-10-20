@@ -11,11 +11,11 @@ import javafx.scene.text.FontWeight;
 public class SwitchScene extends Knop {
     private Seadric seadric;
     int sceneID;
-    public SwitchScene(Coordinate2D initialLocation, Seadric seadric, int sceneID) {
-        super(initialLocation, "Play again", seadric);
+    public SwitchScene(Coordinate2D initialLocation, Seadric seadric, String text, int sceneID) {
+        super(initialLocation, text, seadric);
         this.seadric = seadric;
         this.sceneID = sceneID;
-        setFill(Color.LIGHTBLUE);
+        setFill(Color.BLACK);
         setFont(Font.font("Roboto", FontWeight.BOLD, 30));
     }
 

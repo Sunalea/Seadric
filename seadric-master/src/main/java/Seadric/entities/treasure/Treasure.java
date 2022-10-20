@@ -1,16 +1,13 @@
 package Seadric.entities.treasure;
 import Seadric.entities.Seacreatures.Speler;
-import Seadric.entities.text.HealthText;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.Collided;
 import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.DynamicCompositeEntity;
 public class Treasure extends DynamicCompositeEntity implements Collider, Collided {
     Speler speler;
-    HealthText healthText;
-    public Treasure(Coordinate2D initialLocation, HealthText healthText, Speler speler) {
+    public Treasure(Coordinate2D initialLocation, Speler speler) {
         super(initialLocation);
-        this.healthText = healthText;
         this.speler = speler;
     }
 
@@ -22,10 +19,6 @@ public class Treasure extends DynamicCompositeEntity implements Collider, Collid
 
     public int getPoints() {
         return 100;
-    }
-
-    public int getHealth() {
-        return 1;
     }
 
     @Override
