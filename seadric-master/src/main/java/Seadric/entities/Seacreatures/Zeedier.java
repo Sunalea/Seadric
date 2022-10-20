@@ -1,8 +1,6 @@
 package Seadric.entities.Seacreatures;
 
 import Seadric.Waterworld;
-import Seadric.entities.swordfish.HitBox;
-import Seadric.entities.swordfish.SwordfishSprite;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.entities.Collided;
