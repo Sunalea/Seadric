@@ -47,7 +47,7 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
             setCurrentFrameIndex(2);
         } else if (pressedKeys.contains(KeyCode.D)) {
             setMotion(3, 90d);
-            setCurrentFrameIndex(1);
+            setCurrentFrameIndex(2);
         } else if (pressedKeys.contains(KeyCode.W)) {
             setMotion(3, 180d);
         } else if (pressedKeys.contains(KeyCode.S)) {
@@ -101,15 +101,27 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
                 }
             }
         }
+        else if (collider instanceof Predator){
+            health--;
+            healthText.setHealthText(health);
+            if (health == 0){
+                seadric.setActiveScene(3);
+            }
+        }
 
         else if (collider instanceof Treasure) {
             points += ((Treasure) collider).getPoints();
             pointsText.setPointsText(points);
         }
-
         if (collider instanceof Seamine) {
             health = 0;
             seadric.setActiveScene(3);
+        }
+        if (points >= 100) {
+            setWidth(Width + 120);
+            setHeight(Height + 120);
+            this.Width += 120;
+            this.Height += 120;
         }
     }
 
