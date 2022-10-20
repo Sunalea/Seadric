@@ -78,9 +78,7 @@ public class GameLevel extends DynamicScene {
             ));
         }
 
-        addEntity(new Seamine(
-                new Coordinate2D(new Random().nextInt((int) getWidth()), getHeight() / 1.6)
-        ));
+        addEntity(new Seamine( new Coordinate2D(new Random().nextInt((int) getWidth()), getHeight() / 1.6)));
 
 //        addEntity(swordfish);
         addEntity(speler);
