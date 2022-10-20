@@ -34,7 +34,7 @@ public class GameLevel extends DynamicScene {
 
         var pointsText = new PointText(new Coordinate2D(1050, 0));
         var healthText = new HealthText(new Coordinate2D(0, 0));
-        var predator = new Predator(200,250, new Coordinate2D(getWidth() / 2, getHeight() /2.8),"sprites/swordfish.png", waterworld);
+        var predator = new Predator(200,250, new Coordinate2D(getWidth() / 2, getHeight() /2.8),"sprites/swordfish.png", seadric);
 
         var speler = new Speler(
             new Coordinate2D(getWidth() / 2, getHeight() / 2),60,70, image, seadric, healthText, pointsText
