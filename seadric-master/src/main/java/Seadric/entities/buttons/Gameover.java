@@ -1,6 +1,6 @@
 package Seadric.entities.buttons;
 
-import Seadric.Waterworld;
+import Seadric.Seadric;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.impl.TextEntity;
 import com.github.hanyaeger.api.userinput.MouseButtonPressedListener;
@@ -12,19 +12,19 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
-public class Gameover extends TextEntity implements MouseButtonPressedListener, MouseEnterListener, MouseExitListener {
+public class Gameover extends Knop {
 
-    private Waterworld waterworld;
-    public Gameover(Coordinate2D initialLocation, Waterworld waterworld){
-        super(initialLocation, "Quit game");
-        this.waterworld = waterworld;
-        setFill(Color.BLACK);
+    private Seadric seadric;
+    public Gameover(Coordinate2D initialLocation, Seadric seadric){
+        super(initialLocation, "Quit game", seadric);
+        this.seadric = seadric;
+        setFill(Color.LIGHTBLUE);
         setFont(Font.font("Roboto", FontWeight.BOLD, 30));
     }
 
     @Override
     public void onMouseButtonPressed(MouseButton mouseButton, Coordinate2D coordinate2D) {
-        waterworld.quit();
+        seadric.quit();
     }
 
     @Override

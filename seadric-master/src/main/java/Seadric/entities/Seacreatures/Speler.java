@@ -3,16 +3,14 @@ package Seadric.entities.Seacreatures;
 import java.util.Random;
 import java.util.Set;
 
-import Seadric.GameLevel;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.Newtonian;
 import com.github.hanyaeger.api.entities.SceneBorderTouchingWatcher;
 import com.github.hanyaeger.api.scenes.SceneBorder;
 import com.github.hanyaeger.api.userinput.KeyListener;
-import com.github.hanyaeger.api.Size;
 
-import Seadric.Waterworld;
+import Seadric.Seadric;
 import Seadric.entities.enemies.Seamine;
 import Seadric.entities.text.HealthText;
 import Seadric.entities.text.PointText;
@@ -23,15 +21,15 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
     // make constructor for player fish
     private HealthText healthText;
     private PointText pointsText;
-    private Waterworld waterworld;
+    private Seadric seadric;
     private int health = 3, points = 0;
     private String image;
     private Coordinate2D location;
 
-    public Speler(Coordinate2D location, int Width, int Height, String image, Waterworld waterworld,
+    public Speler(Coordinate2D location, int Width, int Height, String image, Seadric seadric,
             HealthText healthText, PointText pointsText) {
-        super(Width, Height, location, image, waterworld);
-        this.waterworld = waterworld;
+        super(Width, Height, location, image, seadric);
+        this.seadric = seadric;
         this.healthText = healthText;
         this.pointsText = pointsText;
 
@@ -73,6 +71,7 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
                 break;
             case RIGHT:
                 setAnchorLocationX(getSceneWidth() - getWidth() - 1);
+                break;
             default:
                 break;
         }
@@ -86,7 +85,7 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
                 health--;
                 healthText.setHealthText(health);
                 if (health == 0) {
-                    waterworld.setActiveScene(3);
+                    seadric.setActiveScene(3);
                 }
             } else if (collider.getHeight() < this.getHeight() && collider.getWidth() < this.getHeight()) {
                 if(collider.getWidth() == 150) {
@@ -110,14 +109,7 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
 
         if (collider instanceof Seamine) {
             health = 0;
-            waterworld.setActiveScene(3);
-        }
-
-        if (points >= 100) {
-            setWidth(Width + 120);
-            setHeight(Height + 120);
-            this.Width += 120;
-            this.Height += 120;
+            seadric.setActiveScene(3);
         }
     }
 

@@ -3,7 +3,6 @@ package Seadric;
 import Seadric.entities.Seacreatures.Speler;
 import Seadric.entities.Seacreatures.Vis;
 import Seadric.entities.enemies.Seamine;
-import Seadric.entities.swordfish.Swordfish;
 import Seadric.entities.text.HealthText;
 import Seadric.entities.text.PointText;
 import Seadric.entities.treasure.Treasure;
@@ -14,12 +13,12 @@ import com.github.hanyaeger.api.scenes.DynamicScene;
 import java.util.Random;
 
 public class GameLevel extends DynamicScene {
-    private Waterworld waterworld;
+    private Seadric seadric;
     private Speler speler;
     private static String image;
 
-    public GameLevel(Waterworld waterworld) {
-        this.waterworld = waterworld;
+    public GameLevel(Seadric seadric) {
+        this.seadric = seadric;
     }
 
     @Override
@@ -36,7 +35,7 @@ public class GameLevel extends DynamicScene {
         var healthText = new HealthText(new Coordinate2D(0, 0));
 
         var speler = new Speler(
-            new Coordinate2D(getWidth() / 2, getHeight() / 2),60,70, image, waterworld, healthText, pointsText
+            new Coordinate2D(getWidth() / 2, getHeight() / 2),60,70, image, seadric, healthText, pointsText
         );
         this.speler = speler;
 
@@ -46,7 +45,7 @@ public class GameLevel extends DynamicScene {
                     ((int)getWidth() / 8),
                     ((int)getWidth() / 8),
                     "sprites/Grotevis.png",
-                    waterworld
+                    seadric
             ));
         }
 
@@ -56,7 +55,7 @@ public class GameLevel extends DynamicScene {
                     ((int)getWidth() / 20),
                     ((int)getWidth() / 20),
                     "sprites/MiddelVis.png",
-                    waterworld
+                    seadric
             ));
         }
 
@@ -66,7 +65,7 @@ public class GameLevel extends DynamicScene {
                     ((int)getWidth() / 30),
                     ((int)getWidth() / 30),
                     "sprites/KleineVis.png",
-                    waterworld
+                    seadric
             ));
         }
 

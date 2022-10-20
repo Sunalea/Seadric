@@ -6,16 +6,16 @@ import com.github.hanyaeger.api.entities.impl.TextEntity;
 import com.github.hanyaeger.api.scenes.DynamicScene;
 
 import Seadric.entities.buttons.Gameover;
-import Seadric.entities.buttons.PlayAgain;
+import Seadric.entities.buttons.SwitchScene;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 public class GameOver extends DynamicScene {
-    private Waterworld waterworld;
+    private Seadric seadric;
 
-    public GameOver(Waterworld waterworld) {
-        this.waterworld = waterworld;
+    public GameOver(Seadric seadric) {
+        this.seadric = seadric;
     }
 
     @Override
@@ -34,10 +34,10 @@ public class GameOver extends DynamicScene {
         gameOverText.setFill(Color.BLACK);
         gameOverText.setFont(Font.font("Roboto", FontWeight.SEMI_BOLD, 80));
 
-        var playAgain = new PlayAgain(new Coordinate2D(getWidth() / 2, getHeight() / 2), waterworld);
+        var playAgain = new SwitchScene(new Coordinate2D(getWidth() / 2, getHeight() / 2), seadric, 2);
         playAgain.setAnchorPoint(AnchorPoint.CENTER_CENTER);
 
-        var quitGame = new Gameover(new Coordinate2D(getWidth(), getHeight()), waterworld);
+        var quitGame = new Gameover(new Coordinate2D(getWidth() / 2, (getHeight() / 2) + 100), seadric);
         quitGame.setAnchorPoint(AnchorPoint.CENTER_CENTER);
 
         addEntity(gameOverText);
