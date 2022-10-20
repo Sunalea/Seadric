@@ -90,12 +90,15 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
                 if (collider.getWidth() == 150) {
                     points += 30;
                     pointsText.setPointsText(points);
+                    ((Vis) collider).remove();
                 } else if (collider.getWidth() == 60) {
                     points += 20;
                     pointsText.setPointsText(points);
+                    ((Vis) collider).remove();
                 } else {
                     points += 10;
                     pointsText.setPointsText(points);
+                    ((Vis) collider).remove();
                 }
             }
         } else if (collider instanceof Predator) {

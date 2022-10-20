@@ -6,12 +6,8 @@ import com.github.hanyaeger.api.entities.Collided;
 import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.DynamicCompositeEntity;
 public class Treasure extends DynamicCompositeEntity implements Collider, Collided {
-    Speler speler;
-    HealthText healthText;
-    public Treasure(Coordinate2D initialLocation, HealthText healthText, Speler speler) {
+    public Treasure(Coordinate2D initialLocation) {
         super(initialLocation);
-        this.healthText = healthText;
-        this.speler = speler;
     }
 
     @Override
@@ -22,10 +18,6 @@ public class Treasure extends DynamicCompositeEntity implements Collider, Collid
 
     public int getPoints() {
         return 100;
-    }
-
-    public int getHealth() {
-        return 1;
     }
 
     @Override
