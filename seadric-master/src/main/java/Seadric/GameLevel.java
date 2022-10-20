@@ -74,11 +74,7 @@ public class GameLevel extends DynamicScene {
 
         for (int i = 0; i < 3; i++){
             addEntity(new Treasure(
-<<<<<<< HEAD
-                new Coordinate2D((new Random().nextInt((int) getWidth())) + (i++ + 30), getHeight() / 1.1), speler
-=======
-                new Coordinate2D((new Random().nextInt((int) getWidth())) + (i++ + 30), getHeight() / 1.1)
->>>>>>> 26e4f0e7d3eafc5a0c06688f46a7fcade046dc92
+               new Coordinate2D((new Random().nextInt((int) getWidth())) + (i++ + 30), getHeight() / 1.1), speler
             ));
         }
 
