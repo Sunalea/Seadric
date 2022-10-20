@@ -8,10 +8,10 @@ import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 import com.github.hanyaeger.api.userinput.MouseButtonPressedListener;
 import javafx.scene.input.MouseButton;
 
-public class Karakter extends DynamicSpriteEntity implements MouseButtonPressedListener {
+public class Character extends DynamicSpriteEntity implements MouseButtonPressedListener {
     private String image;
     private Seadric seadric;
-    public Karakter(String image, Coordinate2D location, Seadric seadric) {
+    public Character(String image, Coordinate2D location, Seadric seadric) {
         super(image, location, new Size(100, 100));
         this.image = image;
         this.seadric = seadric;

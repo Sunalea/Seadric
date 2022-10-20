@@ -18,8 +18,4 @@ import javafx.scene.text.FontWeight;
         setText("Health: " + health);
     }
 
-    public String getHealthText() {
-        return getText();
-    }
-
 }
