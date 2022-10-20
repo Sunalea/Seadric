@@ -41,7 +41,7 @@ public class GameLevel extends DynamicScene {
         );
         this.speler = speler;
 
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 3; i++) {
             addEntity(new Vis(
                     new Coordinate2D(100 + i * 100, 100 + i * 100),
                     ((int)getWidth() / 8),
@@ -51,7 +51,7 @@ public class GameLevel extends DynamicScene {
             ));
         }
 
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 5; i++) {
             addEntity(new Vis(
                     new Coordinate2D(100 + i * 100, 100 + i * 100),
                     ((int)getWidth() / 20),
@@ -61,7 +61,7 @@ public class GameLevel extends DynamicScene {
             ));
         }
 
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 5; i++) {
             addEntity(new Vis(
                     new Coordinate2D(100 + i * 100, 100 + i * 100),
                     ((int)getWidth() / 30),

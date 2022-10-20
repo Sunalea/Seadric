@@ -42,7 +42,7 @@ public class Vis extends Zeedier implements SceneBorderCrossingWatcher {
     @Override
     public void onCollision(Collider collider) {
         if(collider instanceof Speler) {
-            if(collider.getHeight() >= this.Height && collider.getWidth() >= this.Width) {
+            if(collider.getHeight() > this.Height && collider.getWidth() > this.Width) {
                 this.remove();
                 // when a fish gets eaten, create a new one
                 if (Width == 150) {

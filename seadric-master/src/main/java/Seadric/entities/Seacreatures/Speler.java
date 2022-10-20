@@ -18,7 +18,6 @@ import Seadric.entities.treasure.Treasure;
 import javafx.scene.input.KeyCode;
 
 public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingWatcher, Newtonian {
-    // make constructor for player fish
     private HealthText healthText;
     private PointText pointsText;
     private Seadric seadric;
@@ -88,20 +87,18 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
                     seadric.setActiveScene(3);
                 }
             } else if (collider.getHeight() < this.getHeight() && collider.getWidth() < this.getHeight()) {
-                if(collider.getWidth() == 150) {
+                if (collider.getWidth() == 150) {
                     points += 30;
                     pointsText.setPointsText(points);
-                } else if(collider.getWidth() == 60) {
+                } else if (collider.getWidth() == 60) {
                     points += 20;
                     pointsText.setPointsText(points);
                 } else {
-                    System.out.println(collider.getWidth());
                     points += 10;
                     pointsText.setPointsText(points);
                 }
             }
-        }
-        else if (collider instanceof Predator){
+        } else if (collider instanceof Predator) {
             health--;
             healthText.setHealthText(health);
             if (health == 0){
