@@ -8,7 +8,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
-public class SwitchScene extends Knop {
+public class SwitchScene extends Button {
     private Seadric seadric;
     int sceneID;
     public SwitchScene(Coordinate2D initialLocation, Seadric seadric, String text, int sceneID) {

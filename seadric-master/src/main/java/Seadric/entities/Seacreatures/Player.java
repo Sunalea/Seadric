@@ -16,14 +16,14 @@ import Seadric.entities.enemies.Seamine;
 import Seadric.entities.treasure.Treasure;
 import javafx.scene.input.KeyCode;
 
-public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingWatcher, Newtonian {
+public class Player extends SeaCreature implements KeyListener, SceneBorderTouchingWatcher, Newtonian {
     private DynamicText healthText, pointsText;
 
     private Seadric seadric;
     private int health = 3, points = 0;
     private String healthTxt = "Health: ", pointsTxt = "Points:";
 
-    public Speler(Coordinate2D location, int Width, int Height, String image, Seadric seadric,
+    public Player(Coordinate2D location, int Width, int Height, String image, Seadric seadric,
                   DynamicText healthText, DynamicText pointsText) {
         super(Width, Height, location, image, seadric);
         this.seadric = seadric;
@@ -76,7 +76,7 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
 
     @Override
     public void onCollision(Collider collider) {
-        if (collider instanceof Vis) {
+        if (collider instanceof Fish) {
             if (collider.getHeight() > this.getHeight() && collider.getWidth() > this.getHeight()) {
                 setRandomPos();
                 health--;
@@ -88,19 +88,19 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
                 if (collider.getWidth() == 150) {
                     points += 30;
                     pointsText.setText(pointsTxt + points);
-                    ((Vis) collider).remove();
+                    ((Fish) collider).remove();
                 } else if (collider.getWidth() == 60) {
                     points += 20;
                     pointsText.setText(pointsTxt + points);
-                    ((Vis) collider).remove();
+                    ((Fish) collider).remove();
                 } else {
                     points += 10;
                     pointsText.setText(pointsTxt + points);
-                    ((Vis) collider).remove();
+                    ((Fish) collider).remove();
                 }
             }
         } else if (collider instanceof Predator) {
-
+            System.out.println("Predator");
             setRandomPos();
             health--;
             healthText.setText(healthTxt + health);

@@ -8,7 +8,7 @@ import com.github.hanyaeger.api.scenes.SceneBorder;
 
 import java.util.Random;
 
-public class Predator extends Zeedier implements SceneBorderCrossingWatcher {
+public class Predator extends SeaCreature implements SceneBorderCrossingWatcher {
     public Predator(int Width, int Height, Coordinate2D location, String image, Seadric seadric) {
         super(Width, Height, location, image, seadric);
         setMotion(2, 270d);

@@ -1,8 +1,8 @@
 package Seadric;
 
 import Seadric.entities.Seacreatures.Predator;
-import Seadric.entities.Seacreatures.Speler;
-import Seadric.entities.Seacreatures.Vis;
+import Seadric.entities.Seacreatures.Player;
+import Seadric.entities.Seacreatures.Fish;
 import Seadric.entities.enemies.Seamine;
 import Seadric.entities.text.DynamicText;
 import Seadric.entities.treasure.Treasure;
@@ -14,7 +14,7 @@ import java.util.Random;
 
 public class GameLevel extends DynamicScene {
     private Seadric seadric;
-    private Speler speler;
+    private Player player;
     private static String image;
 
     public GameLevel(Seadric seadric) {
@@ -35,13 +35,13 @@ public class GameLevel extends DynamicScene {
         var healthText = new DynamicText(new Coordinate2D(0, 0), 30);
         var predator = new Predator(200,250, new Coordinate2D(getWidth() / 2, getHeight() /2.8),"sprites/swordfish.png", seadric);
 
-        var speler = new Speler(
+        var speler = new Player(
             new Coordinate2D(getWidth() / 2, getHeight() / 2),60,70, image, seadric, healthText, pointsText
         );
-        this.speler = speler;
+        this.player = speler;
 
         for (int i = 0; i < 3; i++) {
-            addEntity(new Vis(
+            addEntity(new Fish(
                     new Coordinate2D(100 + i * 100, 100 + i * 100),
                     ((int)getWidth() / 8),
                     ((int)getWidth() / 8),
@@ -51,7 +51,7 @@ public class GameLevel extends DynamicScene {
         }
 
         for (int i = 0; i < 5; i++) {
-            addEntity(new Vis(
+            addEntity(new Fish(
                     new Coordinate2D(100 + i * 100, 100 + i * 100),
                     ((int)getWidth() / 20),
                     ((int)getWidth() / 20),
@@ -61,7 +61,7 @@ public class GameLevel extends DynamicScene {
         }
 
         for (int i = 0; i < 5; i++) {
-            addEntity(new Vis(
+            addEntity(new Fish(
                     new Coordinate2D(100 + i * 100, 100 + i * 100),
                     ((int)getWidth() / 30),
                     ((int)getWidth() / 30),

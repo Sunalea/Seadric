@@ -7,10 +7,10 @@ import com.github.hanyaeger.api.entities.Collided;
 import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 
-public abstract class Zeedier extends DynamicSpriteEntity implements Collider, Collided {
+public abstract class SeaCreature extends DynamicSpriteEntity implements Collider, Collided {
     protected int Width, Height;
 
-    public Zeedier(int Width, int Height, Coordinate2D location, String image, Seadric seadric) {
+    public SeaCreature(int Width, int Height, Coordinate2D location, String image, Seadric seadric) {
         super(image, location, new Size(Width, Height));
         this.Width = Width;
         this.Height = Height;

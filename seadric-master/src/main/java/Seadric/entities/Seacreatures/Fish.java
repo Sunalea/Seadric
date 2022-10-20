@@ -9,23 +9,23 @@ import com.github.hanyaeger.api.scenes.SceneBorder;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Vis extends Zeedier implements SceneBorderCrossingWatcher {
-    ArrayList<Vis> GroteVis     = new ArrayList();
-    ArrayList<Vis> MediumVis    = new ArrayList();
-    ArrayList<Vis> KleineVis    = new ArrayList();
+public class Fish extends SeaCreature implements SceneBorderCrossingWatcher {
+    ArrayList<Fish> groteVis = new ArrayList();
+    ArrayList<Fish> mediumVis = new ArrayList();
+    ArrayList<Fish> kleineVis = new ArrayList();
     private Seadric seadric;
-    public Vis(Coordinate2D location, int Width, int Height, String Image, Seadric seadric) {
+    public Fish(Coordinate2D location, int Width, int Height, String Image, Seadric seadric) {
         super(Width, Height, location, Image, seadric);
         this.seadric = seadric;
 
         if (Width == 150) {
-            GroteVis.add(this);
+            groteVis.add(this);
             setMotion(1.5, 270d);
         } else if (Width == 60) {
-            MediumVis.add(this);
+            mediumVis.add(this);
             setMotion(1.7, 270d);
         } else {
-            KleineVis.add(this);
+            kleineVis.add(this);
             setMotion(2, 270d);
         }
     }

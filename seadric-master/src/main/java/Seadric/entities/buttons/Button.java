@@ -8,9 +8,9 @@ import com.github.hanyaeger.api.userinput.MouseEnterListener;
 import com.github.hanyaeger.api.userinput.MouseExitListener;
 import javafx.scene.input.MouseButton;
 
-public abstract class Knop extends TextEntity implements MouseButtonPressedListener, MouseEnterListener, MouseExitListener {
+public abstract class Button extends TextEntity implements MouseButtonPressedListener, MouseEnterListener, MouseExitListener {
     protected Seadric seadric;
-    public Knop(Coordinate2D initialLocation, String text, Seadric seadric) {
+    public Button(Coordinate2D initialLocation, String text, Seadric seadric) {
         super(initialLocation, text);
         this.seadric = seadric;
     }
