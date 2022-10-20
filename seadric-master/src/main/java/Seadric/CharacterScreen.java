@@ -1,8 +1,8 @@
 package Seadric;
 
-import Seadric.entities.text.CharacterText;
+import Seadric.entities.text.Screentext;
 import com.github.hanyaeger.api.scenes.DynamicScene;
-import Seadric.entities.components.Karakter;
+import Seadric.entities.components.Character;
 
 import com.github.hanyaeger.api.Coordinate2D;
 
@@ -21,10 +21,10 @@ public class CharacterScreen extends DynamicScene {
     @Override
     public void setupEntities() {
         // make 3 karakter objects and add them to the scene
-        var karakter1 = new Karakter("sprites/karakter1.png", new Coordinate2D(100, 100), seadric);
-        var karakter2 = new Karakter("sprites/karakter2.png", new Coordinate2D(100, 100), seadric);
-        var karakter3 = new Karakter("sprites/karakter3.png", new Coordinate2D(100, 100), seadric);
-        var text      = new CharacterText(new Coordinate2D(getWidth() / 2, getHeight() / 3.5));
+        var karakter1 = new Character("sprites/karakter1.png", new Coordinate2D(100, 100), seadric);
+        var karakter2 = new Character("sprites/karakter2.png", new Coordinate2D(100, 100), seadric);
+        var karakter3 = new Character("sprites/karakter3.png", new Coordinate2D(100, 100), seadric);
+        var text      = new Screentext(new Coordinate2D(getWidth() / 2, getHeight() / 3.5), "Select a character", 30);
 
         karakter1.setAnchorLocation(new Coordinate2D((getWidth() / 2) - 200, (getHeight() / 2)));
         karakter2.setAnchorLocation(new Coordinate2D((getWidth() / 2), getHeight() / 2));
