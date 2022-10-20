@@ -14,11 +14,8 @@ public class Vis extends Zeedier implements SceneBorderCrossingWatcher {
     ArrayList<Vis> MediumVis    = new ArrayList();
     ArrayList<Vis> KleineVis    = new ArrayList();
     private Seadric seadric;
-    private int Width, Height;
     public Vis(Coordinate2D location, int Width, int Height, String Image, Seadric seadric) {
         super(Width, Height, location, Image, seadric);
-        this.Width = Width;
-        this.Height = Height;
         this.seadric = seadric;
 
         if (Width == 150) {

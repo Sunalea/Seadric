@@ -89,7 +89,6 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
             } else if (collider.getHeight() < this.getHeight() && collider.getWidth() < this.getHeight()) {
                 if (collider.getWidth() == 150) {
                     points += 30;
-
                     pointsText.setText(pointsTxt + points);
                 } else if (collider.getWidth() == 60) {
                     points += 20;
@@ -97,15 +96,6 @@ public class Speler extends Zeedier implements KeyListener, SceneBorderTouchingW
                 } else {
                     points += 10;
                     pointsText.setText(pointsTxt + points);
-                    pointsText.setText(pointsTxt + points);
-                    ((Vis) collider).remove();
-
-                } if (collider.getWidth() == 60) {
-                    points += 20;
-                    pointsText.setText(pointsTxt + points);
-                    ((Vis) collider).remove();
-                } else {
-                    points += 10;
                     pointsText.setText(pointsTxt + points);
                     ((Vis) collider).remove();
                 }
