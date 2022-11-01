@@ -107,6 +107,7 @@ public class Player extends SeaCreature implements KeyListener, SceneBorderTouch
             if (health == 0){
                 seadric.setActiveScene(3);
             }
+
         } else if (collider instanceof Treasure) {
             points += 100;
             pointsText.setText(pointsTxt + points);
