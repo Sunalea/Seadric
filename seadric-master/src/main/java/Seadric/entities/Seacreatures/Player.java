@@ -100,14 +100,12 @@ public class Player extends SeaCreature implements KeyListener, SceneBorderTouch
                 }
             }
         } else if (collider instanceof Predator) {
-            System.out.println("Predator");
             setRandomPos();
             health--;
             healthText.setText(healthTxt + health);
             if (health == 0){
                 seadric.setActiveScene(3);
             }
-
         } else if (collider instanceof Treasure) {
             points += 100;
             pointsText.setText(pointsTxt + points);
@@ -117,10 +115,8 @@ public class Player extends SeaCreature implements KeyListener, SceneBorderTouch
         }
 
         if (points >= 100) {
-            setWidth(Width + 120);
-            setHeight(Height + 120);
-            this.Width += 120;
-            this.Height += 120;
+            setWidth(Width + 20);
+            setHeight(Height + 20);
         }
     }
 

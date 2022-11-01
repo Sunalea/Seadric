@@ -2,13 +2,14 @@ package Seadric.entities.Seacreatures;
 
 import Seadric.Seadric;
 import com.github.hanyaeger.api.Coordinate2D;
+import com.github.hanyaeger.api.entities.Collided;
 import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.SceneBorderCrossingWatcher;
 import com.github.hanyaeger.api.scenes.SceneBorder;
 
 import java.util.Random;
 
-public class Predator extends SeaCreature implements SceneBorderCrossingWatcher {
+public class Predator extends SeaCreature implements SceneBorderCrossingWatcher, Collided {
     public Predator(int Width, int Height, Coordinate2D location, String image, Seadric seadric) {
         super(Width, Height, location, image, seadric);
         setMotion(2, 270d);
@@ -16,7 +17,6 @@ public class Predator extends SeaCreature implements SceneBorderCrossingWatcher 
 
     @Override
     public void onCollision(Collider collider) {
-
     }
 
     @Override
